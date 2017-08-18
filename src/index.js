@@ -35,7 +35,7 @@ const AppRouter = () => (
   <Router>
     <div>
       <Nav active={state.activeLink} links={Links} dispatch={dispatch} /> 
-      <input ref={e => { this.email = e.target.value; }} type="text" name="">
+      <input ref={e => { this.email = e.target.value; }} type="text" name="" />
       <button onClick={() => Auth.signIn(this.email, '')}>Sign In</button>
 
       <Container>
