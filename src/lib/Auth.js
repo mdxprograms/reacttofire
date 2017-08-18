@@ -11,9 +11,16 @@ const config = fb.initializeApp({
 
 export const fbConfig = config;
 
-export const loggedIn = () => fbConfig.auth().getUid();
+export const loggedIn = fbConfig.auth().currentUser;
 
 export const signIn = (email, password) => {
-  return config.auth().signInWithEmailAndPassword(email, password)
+  let uid = null;
+
+  fbConfig.auth().signInWithEmailAndPassword(email, password) 
     .catch(err => { console.error(err); alert(err.message); });
+
+  return {
+    uid: fbConfig.auth().currentUser.uid,
+    email: fbConfig.auth().currentUser.email
+  }
 }

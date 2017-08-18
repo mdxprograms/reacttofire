@@ -53,17 +53,14 @@ const NavWrap = style.nav`
   }
 `;
 
-const Nav = ({ active, links, dispatch }) => {
+const Nav = ({ active, links }) => {
   return (
     <NavWrap>
       <h3>ReacttoFire</h3>
       <ul>
         {links.map((l, i) =>
           <li key={i}>
-            <Link
-              onClick={() => dispatch.setActive(l.active)} 
-              to={l.href}
-            >
+            <Link to={l.href}>
               {l.text}   
             </Link>
           </li>
@@ -74,9 +71,8 @@ const Nav = ({ active, links, dispatch }) => {
 };
 
 Nav.propTypes = {
-  active: PropTypes.number.isRequired, 
-  links: PropTypes.array.isRequired,
-  dispatch: PropTypes.func.isRequired
+  active: PropTypes.number, 
+  links: PropTypes.array.isRequired
 };
 
 export default Nav;
